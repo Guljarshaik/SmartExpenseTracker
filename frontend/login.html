@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Smart Khata Book</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      /* Background image with gradient overlay */
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                  url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.95); /* semi-transparent */
+      width: 350px;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .login-container:hover {
+      transform: translateY(-5px);
+    }
+
+    .login-container h2 {
+      color: #333;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 0.85rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    .login-container input:focus {
+      border-color: #74ebd5;
+      box-shadow: 0 0 5px rgba(116, 235, 213, 0.5);
+      outline: none;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 0.85rem;
+      background: #74ebd5;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+
+    .login-container button:hover {
+      background: #4ac8b2;
+    }
+
+    .login-container p {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .login-container a {
+      color: #74ebd5;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Welcome Back</h2>
+    <form action="#" method="post">
+      <input type="text" placeholder="Enter your email" required>
+      <input type="password" placeholder="Enter your password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p>Don’t have an account? <a href="signup.html">Sign up</a></p>
+  </div>
+
+</body>
+</html>

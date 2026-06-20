@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports | Smart Khata Book</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    /* Navbar */
+    header {
+      background-color: #ff3b3b;
+      color: white;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd6d6;
+    }
+
+    /* Page container */
+    .container {
+      padding: 2rem 5%;
+    }
+
+    h2 {
+      color: #ff3b3b;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .charts {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .chart-container {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 250px !important;
+    }
+
+    @media (max-width: 768px) {
+      .charts {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <h1>Smart Khata</h1>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="add-expense.html">Add Expense</a>
+      <a href="add-loan.html">Add Loan</a>
+      <a href="reports.html">Reports</a>
+      <a href="profile.html">Profile</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Reports -->
+  <div class="container">
+    <h2>Reports & Analytics</h2>
+    <div class="charts">
+      <div class="chart-container">
+        <h3>Expenses by Category</h3>
+        <canvas id="expenseChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Loan Summary</h3>
+        <canvas id="loanChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Expense Chart
+    const ctx1 = document.getElementById('expenseChart').getContext('2d');
+    const expenseChart = new Chart(ctx1, {
+      type: 'doughnut',
+      data: {
+        labels: ['Food', 'Transport', 'Entertainment', 'Bills', 'Others'],
+        datasets: [{
+          label: 'Expenses',
+          data: [500, 300, 200, 400, 150],
+          backgroundColor: ['#ff3b3b', '#ff8a3b', '#ffd63b', '#3b9fff', '#3bff95'],
+        }]
+      }
+    });
+
+    // Loan Chart
+    const ctx2 = document.getElementById('loanChart').getContext('2d');
+    const loanChart = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['Loan Given', 'Loan Taken'],
+        datasets: [{
+          label: 'Amount (₹)',
+          data: [2000, 1500],
+          backgroundColor: ['#ff3b3b', '#3b9fff']
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

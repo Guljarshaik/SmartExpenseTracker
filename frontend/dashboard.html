@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Smart Khata Book</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    /* --- Navbar --- */
+    header {
+      background-color: #ff3b3b;
+      color: white;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd6d6;
+    }
+
+    /* --- Dashboard Container --- */
+    .dashboard-container {
+      padding: 2rem 5%;
+    }
+
+    .summary-cards {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: #fff;
+      flex: 1 1 200px;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 1rem;
+      color: #ff3b3b;
+    }
+
+    .card p {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    /* --- Transactions Table --- */
+    .transactions {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .transactions h2 {
+      color: #ff3b3b;
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      text-align: left;
+      padding: 0.8rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    table th {
+      color: #ff3b3b;
+    }
+
+    table tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .summary-cards {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <h1>Smart Khata Dashboard</h1>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="add-expense.html">Add Expense</a>
+      <a href="add-loan.html">Add Loan</a>
+      <a href="reports.html">Reports</a>
+      <a href="profile.html">Profile</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Dashboard Content -->
+  <div class="dashboard-container">
+
+    <!-- Summary Cards -->
+    <div class="summary-cards">
+      <div class="card">
+        <h3>Total Expenses</h3>
+        <p>₹0</p>
+      </div>
+      <div class="card">
+        <h3>Total Loans</h3>
+        <p>₹0</p>
+      </div>
+      <div class="card">
+        <h3>Pending Payments</h3>
+        <p>₹0</p>
+      </div>
+    </div>
+
+    <!-- Recent Transactions -->
+    <div class="transactions">
+      <h2>Recent Transactions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Amount (₹)</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>09/10/2025</td>
+            <td>Grocery</td>
+            <td>500</td>
+            <td>Expense</td>
+          </tr>
+          <tr>
+            <td>08/10/2025</td>
+            <td>Loan Given to Guljar</td>
+            <td>2000</td>
+            <td>Loan</td>
+          </tr>
+          <tr>
+            <td>07/10/2025</td>
+            <td>Salary</td>
+            <td>10000</td>
+            <td>Income</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</body>
+</html>
