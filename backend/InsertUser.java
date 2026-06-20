@@ -10,12 +10,8 @@ public class InsertUser {
         boolean isRegistered = false;
 
         try {
-            // Get connection from DBConnection class
-            con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/ledger_db",
-                "root",
-                "Guljar@2003"
-            );
+            // Get connection from DBConnection helper (reads env vars)
+            con = DBConnection.getConnection();
 
             // SQL query to insert data
             String query = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";

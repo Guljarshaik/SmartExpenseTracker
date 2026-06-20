@@ -3,21 +3,29 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
+    // Get DB connection using environment variables with sensible defaults
+    public static Connection getConnection() throws SQLException, ClassNotFoundException {
+        String url = System.getenv("DB_URL");
+        String user = System.getenv("DB_USER");
+        String password = System.getenv("DB_PASSWORD");
+
+        if (url == null || url.isEmpty()) {
+            url = "jdbc:mysql://localhost:3306/ledger_db";
+        }
+        if (user == null || user.isEmpty()) {
+            user = "root";
+        }
+        if (password == null) {
+            password = "Guljar@2003";
+        }
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        return DriverManager.getConnection(url, user, password);
+    }
+
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/ledger_db";
-        String user = "root";       // your MySQL username
-        String password = "Guljar@2003";  // replace with your MySQL password
-
-        try {
-            // Load JDBC driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // Create connection
-            Connection con = DriverManager.getConnection(url, user, password);
-            System.out.println("✅ Database connected successfully!");
-
-            // Close connection
-            con.close();
+        try (Connection con = getConnection()) {
+            System.out.println("✅ Database connected successfully (using environment config)!");
         } catch (ClassNotFoundException e) {
             System.out.println("❌ JDBC Driver not found. Add the JAR file to classpath.");
         } catch (SQLException e) {
